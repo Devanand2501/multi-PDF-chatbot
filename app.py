@@ -42,7 +42,7 @@ def get_vectorStore(chunks):
 def get_conversationChain(vectorStore):
     # llm = ChatOpenAI()
     huggingfacehub_api_token = st.secrets['HUGGINGFACEHUB_API_KEY']
-    llm = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.5, "max_length":512})
+    llm = HuggingFaceHub(repo_id="google/flan-t5-xxl",huggingfacehub_api_token=huggingfacehub_api_token, model_kwargs={"temperature":0.5, "max_length":512})
     memory = ConversationBufferMemory(memory_key='chat_history',return_messages=True)
     chain = ConversationalRetrievalChain.from_llm(
         llm=llm,
