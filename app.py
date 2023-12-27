@@ -76,11 +76,6 @@ def main():
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = None
 
-
-    st.write(user_template.replace("{{MSG}}","HELLO ROBOT"),unsafe_allow_html=True)
-    st.write(bot_template.replace("{{MSG}}","HELLO HUMAN"),unsafe_allow_html=True)
-
-
     with st.sidebar:
         st.subheader("Your Documents")
         total_pdfs = st.file_uploader("Upload your pdfs", accept_multiple_files=True,type=['pdf'])
