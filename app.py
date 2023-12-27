@@ -29,8 +29,8 @@ def get_chunks(text):
     return chunks
 
 def get_vectorStore(chunks):
-    embeddings = OpenAIEmbeddings() 
-    # embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
+    # embeddings = OpenAIEmbeddings() 
+    embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
     vectorStore = FAISS.from_texts(texts=chunks,embedding=embeddings)
     return vectorStore
 
