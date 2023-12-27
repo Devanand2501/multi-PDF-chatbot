@@ -7,3 +7,4 @@ InstructorEmbedding==1.0.1
 faiss-cpu
 torch
 sentence_transformers
+openai
