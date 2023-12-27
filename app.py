@@ -32,9 +32,10 @@ def get_chunks(text):
 
 def get_vectorStore(chunks):
     # embeddings = OpenAIEmbeddings() 
-    # embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
-    model = SentenceTransformer('all-MiniLM-L6-v2')
-    embeddings = model.encode(chunks)
+    embeddings = HuggingFaceInstructEmbeddings(model_name="sentence-transformers/quora-distilbert-base",
+    encode_kwargs = {'normalize_embeddings': True})
+    # model = SentenceTransformer('all-MiniLM-L6-v2')
+    # embeddings = model.encode(chunks)
     vectorStore = FAISS.from_texts(texts=chunks,embedding=embeddings)
     return vectorStore
 
