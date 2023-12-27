@@ -6,7 +6,7 @@ from langchain.embeddings import OpenAIEmbeddings,HuggingFaceInstructEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.memory import ConversationBufferMemory
 from langchain.chat_models import ChatOpenAI
-from langchain import HuggingFaceHub
+from langchain.llms import HuggingFaceHub
 from langchain.chains import ConversationalRetrievalChain
 from html_template import css, user_template, bot_template
 
@@ -39,10 +39,10 @@ def get_conversationChain(vectorStore):
     # llm = ChatOpenAI()
     llm = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.5, "max_length":512})
     memory = ConversationBufferMemory(memory_key='chat_history',return_messages=True)
-    chain = ConversationalRetrievalChain(
+    chain = ConversationalRetrievalChain.from_llm(
         llm=llm,
         memory=memory,
-        retriever=vectorStore.as_retriver()
+        retriever=vectorStore.as_retriever()
         )
     return chain
 
