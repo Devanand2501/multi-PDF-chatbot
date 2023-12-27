@@ -10,9 +10,8 @@ def main():
         page_icon=':books:'
     )
 
-    load_dotenv()
-    # api_key = st.secrets['OPENAI_API_KEY']
-    api_key = os.getenv('OPENAI_API_KEY')
+    api_key = st.secrets['OPENAI_API_KEY']
+    # api_key = os.getenv('OPENAI_API_KEY')
     print(api_key)
 
     st.header("Summarize Multiple PDFs")
@@ -22,7 +21,7 @@ def main():
     if st.button("Process"):
         with st.spinner("Processing"):
             whole_text = get_text(total_pdfs=total_pdfs)
-            # st.write(whole_text)
+            st.write(whole_text)
 
 if __name__ == '__main__':
     main()
