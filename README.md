@@ -39,10 +39,3 @@
     <!-- Add more steps here -->
   </li>
 </ol>
-
-<!-- License Section -->
-<h2>🌈 License</h2>
-
-<p>MultiPDF - ChatBot is released under the MIT License, a license for visionaries, creators, and those who seek to revolutionize document interactions.</p>
-
-<p>Let's shape the future of PDF conversations with MultiPDF - ChatBot! 🌟💻</p>
