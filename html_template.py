@@ -37,7 +37,7 @@ bot_template = '''
 user_template = '''
 <div class="chat-message user">
     <div class="avatar">
-        <img src="https://www.prompthunt.com/prompt/cl9ciihne1639q4owc3kdjwki?selectedAsset=cl9ciihp61695q4ow6yzbju7p">
+        <img src="https://img.freepik.com/free-vector/businessman-working-laptop-computer-office-3d-character-isolated-white-background_40876-3756.jpg?w=900&t=st=1705064708~exp=1705065308~hmac=37b0bb7355829a2c1d6875d7ce22b18d2c68aac84df8b06c7c2666c28eba25b5">
     </div>    
     <div class="message">{{MSG}}</div>
 </div>
