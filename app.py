@@ -92,7 +92,7 @@ def main():
                 vector_store = get_vectorStore(chunk_text)
 
                 st.session_state.conversation = get_conversationChain (vector_store)
-            st.write("PROCESSING HOGAYA JI")
+            st.write("DONE")
 
 if __name__ == '__main__':
     main()
