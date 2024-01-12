@@ -28,7 +28,7 @@ css = '''
 bot_template = '''
 <div class="chat-message bot">
     <div class="avatar">
-        <img src="assets/chatbot.jpg" style="max-height: 78px; max-width: 78px; border-radius: 50%; object-fit: cover;">
+        <img src="https://static.vecteezy.com/system/resources/previews/021/640/068/non_2x/3d-bot-icon-isolated-on-white-background-3d-chatbot-business-and-technology-concept-cartoon-minimal-style-3d-chatbot-icon-render-illustration-vector.jpg" style="max-height: 78px; max-width: 78px; border-radius: 50%; object-fit: cover;">
     </div>
     <div class="message">{{MSG}}</div>
 </div>
