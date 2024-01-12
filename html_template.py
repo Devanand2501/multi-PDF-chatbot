@@ -37,7 +37,7 @@ bot_template = '''
 user_template = '''
 <div class="chat-message user">
     <div class="avatar">
-        <img src="assets/human.jpg">
+        <img src="https://www.prompthunt.com/prompt/cl9ciihne1639q4owc3kdjwki?selectedAsset=cl9ciihp61695q4ow6yzbju7p">
     </div>    
     <div class="message">{{MSG}}</div>
 </div>
