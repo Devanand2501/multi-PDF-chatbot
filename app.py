@@ -1,4 +1,5 @@
 import streamlit as st 
+import os
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
@@ -41,15 +42,20 @@ def get_vectorStore(chunks):
 
 def get_conversationChain(vectorStore):
     # llm = ChatOpenAI()
-    huggingfacehub_api_token = st.secrets['HUGGINGFACEHUB_API_KEY']
-    llm = HuggingFaceHub(repo_id="google/flan-t5-xxl",huggingfacehub_api_token=huggingfacehub_api_token, model_kwargs={"temperature":0.5, "max_length":512})
-    memory = ConversationBufferMemory(memory_key='chat_history',return_messages=True)
-    chain = ConversationalRetrievalChain.from_llm(
-        llm=llm,
-        memory=memory,
-        retriever=vectorStore.as_retriever()
-        )
-    return chain
+    try:
+        # huggingfacehub_api_token = os.getenv('HUGGINGFACEHUB_API_KEY')
+        huggingfacehub_api_token = st.secrets['HUGGINGFACEHUB_API_KEY']
+        llm = HuggingFaceHub(repo_id="google/flan-t5-xxl",huggingfacehub_api_token=huggingfacehub_api_token, model_kwargs={"temperature":0.5, "max_length":512})
+        memory = ConversationBufferMemory(memory_key='chat_history',return_messages=True)
+        chain = ConversationalRetrievalChain.from_llm(
+            llm=llm,
+            memory=memory,
+            retriever=vectorStore.as_retriever()
+            )
+        return chain
+    except Exception as e:
+        st.error(f"Error initializing the model: {e}")
+        return None
 
 def handle_userQuestion(question):
     response = st.session_state.conversation({'question': question})
